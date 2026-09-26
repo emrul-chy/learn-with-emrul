@@ -3,6 +3,7 @@
 import { useState, useMemo, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { Tutorial } from '@/lib/types'
+import MarkdownRenderer from '@/components/MarkdownRenderer'
 
 interface Props {
   tutorials: Tutorial[]
@@ -107,7 +108,9 @@ export default function TutorialsBrowser({ tutorials, categories }: Props) {
                   <div>
                     <div className="card-category">{tutorial.category}</div>
                     <h2 className="card-title" style={{ marginTop: '8px' }}>{tutorial.title}</h2>
-                    <p className="card-excerpt" style={{ marginTop: '8px' }}>{tutorial.excerpt}</p>
+                    <div className="card-excerpt" style={{ marginTop: '8px' }}>
+                      <MarkdownRenderer content={tutorial.excerpt || ''} />
+                    </div>
                   </div>
 
                   {tags.length > 0 && (

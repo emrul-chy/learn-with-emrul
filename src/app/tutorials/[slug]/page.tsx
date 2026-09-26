@@ -102,7 +102,9 @@ export default async function TutorialPage({ params }: Props) {
           </div>
 
           <h1 className="tutorial-title">{tutorial.title}</h1>
-          <p className="tutorial-excerpt-large">{tutorial.excerpt}</p>
+          <div className="tutorial-excerpt-large">
+            <MarkdownRenderer content={tutorial.excerpt || ''} />
+          </div>
 
           <div className="tutorial-stats-bar">
             <div className="tutorial-stat">
